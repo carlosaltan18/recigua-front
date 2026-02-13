@@ -90,10 +90,21 @@ export const downloadReportPdf = async (reportId: string): Promise<void> => {
 
 export const downloadReportsExcel = async (filters?: ReportFilters): Promise<void> => {
   const params = new URLSearchParams();
+
   if (filters?.startDate) params.append('startDate', filters.startDate);
-  // ... resto de filtros ...
-  const response = await api.get(`/reports/export/excel?${params}`, { responseType: 'blob' });
-  const blob = new Blob([response.data], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
+  if (filters?.endDate) params.append('endDate', filters.endDate);
+  if (filters?.supplierId) params.append('supplierId', filters.supplierId);
+  if (filters?.productId) params.append('productId', filters.productId);
+  if (filters?.search) params.append('search', filters.search);
+
+  const response = await api.get(`/reports/export/excel?${params.toString()}`, {
+    responseType: 'blob',
+  });
+
+  const blob = new Blob([response.data], {
+    type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+  });
+
   const url = window.URL.createObjectURL(blob);
   const link = document.createElement('a');
   link.href = url;
