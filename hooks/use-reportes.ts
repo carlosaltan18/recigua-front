@@ -21,8 +21,10 @@ import type {
 
 // ... (useReports, useReport, useCreateReport se quedan igual) ...
 
-export const useReports = (page: number = 1, pageSize: number = 10, filters?: ReportFilters) => {
+// En tu archivo de hooks de reportes
+export const useReports = (page: number = 1, pageSize: number = 5, filters?: ReportFilters) => {
   return useQuery({
+    // Al incluir page y filters aquí, cualquier cambio gatilla una nueva petición al API
     queryKey: ['reports', page, pageSize, filters],
     queryFn: () => getReports(page, pageSize, filters),
   });

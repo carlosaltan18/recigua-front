@@ -33,7 +33,7 @@ import { useAllProductos } from '@/hooks/use-productos';
 export default function ReportsPage() {
   const [filters, setFilters] = useState<ReportFilters>({});
   const [page, setPage] = useState(1);
-  const [pageSize] = useState(10);
+  const [pageSize] = useState(5);
   
   // Estados de Modales
   const [wizardOpen, setWizardOpen] = useState(false);

@@ -103,7 +103,7 @@ export default function DashboardPage() {
       </div>
 
       <div className="grid gap-6 md:grid-cols-2">
-        {/* Revenue Card Real */}
+        {/* Revenue Card Real 
         <Card className="bg-card border-border shadow-sm">
           <CardHeader>
             <CardTitle className="flex items-center gap-2 text-card-foreground">
@@ -129,7 +129,8 @@ export default function DashboardPage() {
               )}
             </div>
           </CardContent>
-        </Card>
+        </Card> 
+        */}
 
         {/* Actividad Reciente Real */}
         <Card className="bg-card border-border shadow-sm">

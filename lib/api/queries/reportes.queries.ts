@@ -17,7 +17,7 @@ export const createReport = async (data: CreateReportDto): Promise<Report> => {
 
 export const getReports = async (
   page: number = 1,
-  pageSize: number = 10,
+  pageSize: number = 5,
   filters?: ReportFilters
 ): Promise<PaginatedResponse<Report>> => {
   const params = new URLSearchParams({
